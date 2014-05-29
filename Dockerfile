@@ -1,9 +1,10 @@
 ###### Supervisord image
-FROM qnib/fd20
+FROM qnib-fd20
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 ## supervisord
 ADD yum-cache/supervisor /tmp/yum-cache/supervisor
+RUN echo "2014-05-24 17:09"; yum clean all
 RUN yum install -y python-meld3 python-setuptools
 ### Old version w/o syslog
 #RUN yum install -y supervisor
