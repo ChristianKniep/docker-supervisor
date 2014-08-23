@@ -16,5 +16,5 @@ ADD etc/supervisord.conf /etc/supervisord.conf
 RUN rm -rf /tmp/yum-cache/supervisor
 RUN mkdir -p /var/log/supervisor
 RUN sed -i -e 's/nodaemon=false/nodaemon=true/' /etc/supervisord.conf
-ADD root/bin/supervisor_daemonize.sh /root/bin/supervisor_daemonize.sh
+ADD usr/local/bin/supervisor_daemonize.sh /usr/local/bin/supervisor_daemonize.sh
 
