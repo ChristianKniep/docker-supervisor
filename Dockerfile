@@ -9,3 +9,5 @@ RUN mkdir -p /var/log/supervisor
 RUN sed -i -e 's/nodaemon=false/nodaemon=true/' /etc/supervisord.conf
 ADD usr/local/bin/supervisor_daemonize.sh /usr/local/bin/supervisor_daemonize.sh
 
+CMD /bin/supervisord -c /etc/supervisord.conf
+
