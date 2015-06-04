@@ -9,5 +9,6 @@ RUN mkdir -p /var/log/supervisor
 RUN sed -i -e 's/nodaemon=false/nodaemon=true/' /etc/supervisord.conf
 ADD usr/local/bin/supervisor_daemonize.sh /usr/local/bin/supervisor_daemonize.sh
 
-CMD /bin/supervisord -c /etc/supervisord.conf
+RUN echo "/bin/supervisord -n -c /etc/supervisord.conf" >> /root/.bash_history
+CMD ["/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 
