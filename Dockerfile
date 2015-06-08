@@ -13,8 +13,8 @@ RUN yum install -y python-meld3 python-setuptools supervisor python-pip && \
     mkdir -p /var/log/supervisor
 RUN sed -i -e 's/nodaemon=false/nodaemon=true/' /etc/supervisord.conf
 ADD etc/supervisord.conf /etc/supervisord.conf
-ADD opt/qnib/bin/supervisor_daemonize.sh opt/qnib/bin/start_supervisord.sh /opt/qnib/bin/
+ADD opt/qnib/bin/supervisor_daemonize.sh /opt/qnib/bin/
 
 RUN echo "/bin/supervisord -n -c /etc/supervisord.conf" >> /root/.bash_history
-CMD ["/opt/qnib/bin/start_supervisord.sh"]
+CMD ["/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 
