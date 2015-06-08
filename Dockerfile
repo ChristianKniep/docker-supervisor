@@ -3,9 +3,9 @@ FROM qnib/fd20
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 ## supervisord
-RUN yum install -y python-meld3 python-setuptools python-supervisor python-pip && \
+RUN yum install -y python-meld3 python-setuptools supervisor python-pip && \
     pip install supervisor-logging && \
-     mkdir -p /var/log/supervisor
+    mkdir -p /var/log/supervisor
 RUN sed -i -e 's/nodaemon=false/nodaemon=true/' /etc/supervisord.conf
 ADD etc/supervisord.conf /etc/supervisord.conf
 ADD opt/qnib/bin/supervisor_daemonize.sh opt/qnib/bin/start_supervisord.sh /opt/qnib/bin/
