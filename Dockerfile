@@ -15,6 +15,6 @@ RUN sed -i -e 's/nodaemon=false/nodaemon=true/' /etc/supervisord.conf
 ADD etc/supervisord.conf /etc/supervisord.conf
 ADD opt/qnib/bin/supervisor_daemonize.sh /opt/qnib/bin/
 
-RUN echo "/bin/supervisord -n -c /etc/supervisord.conf" >> /root/.bash_history
+RUN echo "/bin/supervisord -c /etc/supervisord.conf" >> /root/.bash_history
 CMD ["/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 
