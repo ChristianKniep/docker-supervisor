@@ -15,7 +15,11 @@ for srv in $(echo ${SUPERVISOR_SKIP_SRV}|tr "," " ");do
     fi
 done
 
-supervisord -c /etc/supervisord.conf 
-sleep 5
-echo "# supervisorctl status"
-supervisorctl status
+if [ "X$1" == "X" ];then
+    supervisord -c /etc/supervisord.conf
+   sleep 5
+   echo "# supervisorctl status"
+   supervisorctl status
+else
+   supervisord -n -c /etc/supervisord.conf
+fi
