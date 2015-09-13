@@ -1,5 +1,5 @@
 ###### Supervisord image
-FROM qnib/fd20
+FROM qnib/fedora:20
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 ## supervisord
