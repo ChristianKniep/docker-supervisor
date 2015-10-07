@@ -1,5 +1,5 @@
 ###### Supervisord image
-FROM qnib/fedora:20
+FROM docker1.r3.03.bera.gaikai.biz:5000/docker1.r3.03.bera.gaikai.biz:5000/qnib/fedora:20
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 ## supervisord
