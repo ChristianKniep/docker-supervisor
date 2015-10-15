@@ -15,6 +15,13 @@ for srv in $(echo ${SUPERVISOR_SKIP_SRV}|tr "," " ");do
     fi
 done
 
+### OVERRIDE stdout logfile for given files
+if [ "X${SUPERVISOR_SRV_SYSLOG}" != "X" ];then
+   for srv in $(find /etc/supervisord.d/${SUPERVISOR_SRV_SYSLOG}.ini);do
+        sed -e 's/stdout_logfile.*/stdout_logfile=syslog/' ${srv}
+   done
+fi
+
 ## Fire up script outside of supervisor
 if [ "X${SUPERVISOR_START_EXTERNAL}" != "X" ];then
     if [ -x ${SUPERVISOR_START_EXTERNAL} ];then
