@@ -2,7 +2,7 @@
 FROM qnib/fedora
 
 ## supervisord
-RUN dnf install -y python-meld3 python-setuptools supervisor python-pip && \
+RUN dnf install -y python-meld3 supervisor && \
     pip install supervisor-logging && \
     mkdir -p /var/log/supervisor
 ADD etc/supervisord.conf /etc/supervisord.conf
