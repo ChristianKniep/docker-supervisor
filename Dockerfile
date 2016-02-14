@@ -1,14 +1,8 @@
 ###### Supervisord image
-FROM qnib/fedora:20
-MAINTAINER "Christian Kniep <christian@qnib.org>"
+FROM qnib/fedora
 
 ## supervisord
-
-ENV SYSLOG_SERVER logstash.syslog.service.consul
-ENV SYSLOG_PORT 5514
-ENV SYSLOG_PROTO TCP
-
-RUN yum install -y python-meld3 python-setuptools supervisor python-pip && \
+RUN dnf install -y python-meld3 python-setuptools supervisor python-pip && \
     pip install supervisor-logging && \
     mkdir -p /var/log/supervisor
 ADD etc/supervisord.conf /etc/supervisord.conf
