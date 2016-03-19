@@ -25,6 +25,10 @@ for srv in $(echo ${SUPERVISOR_SKIP_SRV}|tr "," " ");do
     else
         echo "ERR> could not find service '${srv}' (/etc/supervisord.d/${srv}.ini) to disable it"
     fi
+    ## Kick out consul check, if present
+    if [ -f /etc/consul.d/${srv}.json ];then
+        rm -f /etc/consul.d/${srv}.json
+    fi
 done
 
 ### OVERRIDE stdout logfile for given files
