@@ -1,5 +1,5 @@
 ###### Supervisord image
-FROM qnib/fedora
+FROM qnib/fedora:23
 
 ## supervisord
 RUN dnf install -y python-meld3 supervisor && \
